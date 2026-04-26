@@ -33,30 +33,41 @@ export default function LoveStoryAndEvent() {
           <div className="h-[2px] w-full bg-white/40 mb-8" />
         </motion.div>
 
-        {/* Love story paragraphs */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="space-y-5 mb-12"
-        >
-          <p className="font-garet text-white/85 text-sm md:text-base leading-relaxed text-justify">
+        {/* Love story paragraphs — staggered animations */}
+        <div className="space-y-5 mb-12">
+          <motion.p
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="font-garet text-white/85 text-sm md:text-base leading-relaxed text-justify"
+          >
             Kisah cinta Anggita dan Cindy bermula di kampus, dari sebuah pertemuan sederhana yang diam-diam menyimpan rasa. Di antara hiruk pikuk aktivitas perkuliahan, Anggita kerap melihat Cindy dari kejauhan. Ada ketertarikan yang tumbuh, namun saat itu ia hanya mampu memendamnya karena belum memiliki keberanian untuk menyapa. Hari demi hari berlalu, hingga akhirnya Anggita memberanikan diri untuk memperkenalkan diri—sebuah langkah kecil yang ternyata menjadi awal dari kisah besar mereka.
-          </p>
-          <p className="font-garet text-white/85 text-sm md:text-base leading-relaxed text-justify">
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="font-garet text-white/85 text-sm md:text-base leading-relaxed text-justify"
+          >
             Sejak saat itu, kedekatan mulai terjalin. Dari percakapan sederhana hingga kebersamaan yang semakin hangat, hubungan mereka tumbuh dan semakin dewasa. Mereka belajar untuk saling memahami, mendukung, dan menjadi tempat pulang satu sama lain di tengah berbagai kesibukan dan tantangan hidup.
-          </p>
+          </motion.p>
 
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+          >
             <p className="font-garet text-white/90 text-sm md:text-base font-semibold mb-1">
               Janji Suci
             </p>
             <p className="font-garet text-white/85 text-sm md:text-base leading-relaxed text-justify">
               Perjalanan mereka pun membawa pada sebuah momen penuh makna, ketika Anggita dengan penuh keyakinan menyatakan keseriusannya kepada Cindy. Dengan hati yang mantap, Cindy menerima, mengantarkan mereka menuju hari bahagia yang dipenuhi cinta dan haru. Kini, di hadapan keluarga dan orang-orang terkasih, Anggita dan Cindy mengikat janji suci, siap melangkah bersama sebagai pasangan hidup, saling menggenggam dalam setiap perjalanan kehidupan selamanya.
             </p>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
 
         {/* TANGGAL & LOKASI */}
         <motion.div

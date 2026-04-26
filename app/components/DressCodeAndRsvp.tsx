@@ -1,30 +1,103 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
-import { useWishes } from "../hooks/useWishes";
+
+interface Wish {
+  id: string;
+  name: string;
+  message: string;
+  timestamp: string;
+  attendance?: "hadir" | "tidak_hadir";
+}
 
 export default function DressCodeAndRsvp() {
-  const { addWish } = useWishes();
   const [name, setName] = useState("");
   const [attendance, setAttendance] = useState<"hadir" | "tidak_hadir">("hadir");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [wishes, setWishes] = useState<Wish[]>([]);
+
+  // Fetch wishes from API + merge with localStorage
+  const fetchWishes = useCallback(async () => {
+    try {
+      const res = await fetch("/api/wishes");
+      if (res.ok) {
+        const apiWishes: Wish[] = await res.json();
+        // Merge with localStorage
+        const stored = localStorage.getItem("wedding_wishes");
+        const localWishes: Wish[] = stored ? JSON.parse(stored) : [];
+        // Combine: API wishes + local-only wishes (by id)
+        const apiIds = new Set(apiWishes.map((w) => w.id));
+        const merged = [...apiWishes, ...localWishes.filter((w) => !apiIds.has(w.id))];
+        merged.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
+        setWishes(merged);
+        // Update localStorage with merged data
+        localStorage.setItem("wedding_wishes", JSON.stringify(merged));
+      }
+    } catch {
+      // Fallback to localStorage only
+      const stored = localStorage.getItem("wedding_wishes");
+      if (stored) setWishes(JSON.parse(stored));
+    }
+  }, []);
+
+  // Fetch on mount + poll every 5s
+  useEffect(() => {
+    fetchWishes();
+    const interval = setInterval(fetchWishes, 5000);
+    return () => clearInterval(interval);
+  }, [fetchWishes]);
 
   const handleSubmit = async () => {
     if (!name.trim() || !message.trim()) {
       setError("Nama dan ucapan harus diisi");
       return;
     }
-    const success = await addWish(name, message, attendance);
-    if (success) {
-      setName("");
-      setMessage("");
-      setAttendance("hadir");
-      setError("");
-      setSubmitted(true);
-      setTimeout(() => setSubmitted(false), 3000);
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/wishes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: name.trim(), message: message.trim(), attendance }),
+      });
+      if (res.ok) {
+        const newWish: Wish = await res.json();
+        // Add to state and localStorage
+        setWishes((prev) => {
+          const updated = [newWish, ...prev];
+          localStorage.setItem("wedding_wishes", JSON.stringify(updated));
+          return updated;
+        });
+        setName("");
+        setMessage("");
+        setAttendance("hadir");
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 5000);
+      } else {
+        setError("Gagal mengirim, coba lagi");
+      }
+    } catch {
+      setError("Gagal mengirim, coba lagi");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const formatTimestamp = (ts: string) => {
+    try {
+      return new Date(ts).toLocaleDateString("id-ID", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+    } catch {
+      return ts;
     }
   };
 
@@ -62,11 +135,10 @@ export default function DressCodeAndRsvp() {
             Kami mengundang Bapak/Ibu/Saudara/i untuk mengenakan pakaian dengan warna berikut agar selaras dengan tema acara kami.
           </p>
 
-          {/* Color swatches */}
           <div className="flex items-center justify-center gap-4">
-            <div className="w-20 h-20 md:w-24 md:h-24 rounded-md bg-[#C4920A] shadow-lg" />
-            <div className="w-20 h-20 md:w-24 md:h-24 rounded-md bg-[#2B6B8A] shadow-lg" />
-            <div className="w-20 h-20 md:w-24 md:h-24 rounded-md bg-[#5B7A5E] shadow-lg" />
+            <motion.div initial={{ opacity: 0, scale: 0.5 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.1 }} className="w-20 h-20 md:w-24 md:h-24 rounded-md bg-[#C4920A] shadow-lg" />
+            <motion.div initial={{ opacity: 0, scale: 0.5 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.2 }} className="w-20 h-20 md:w-24 md:h-24 rounded-md bg-[#2B6B8A] shadow-lg" />
+            <motion.div initial={{ opacity: 0, scale: 0.5 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.3 }} className="w-20 h-20 md:w-24 md:h-24 rounded-md bg-[#5B7A5E] shadow-lg" />
           </div>
         </motion.div>
 
@@ -89,8 +161,13 @@ export default function DressCodeAndRsvp() {
           </p>
 
           {/* Form */}
-          <div className="space-y-5">
-            {/* Nama */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="space-y-5"
+          >
             <div>
               <label className="font-garet text-white text-sm font-semibold block mb-2">Nama</label>
               <input
@@ -101,7 +178,6 @@ export default function DressCodeAndRsvp() {
               />
             </div>
 
-            {/* Kehadiran */}
             <div>
               <label className="font-garet text-white text-sm font-semibold block mb-2">Kehadiran</label>
               <div className="relative">
@@ -119,7 +195,6 @@ export default function DressCodeAndRsvp() {
               </div>
             </div>
 
-            {/* Ucapan & Doa */}
             <div>
               <label className="font-garet text-white text-sm font-semibold block mb-2">Ucapan &amp; Doa</label>
               <textarea
@@ -133,15 +208,55 @@ export default function DressCodeAndRsvp() {
             {error && <p className="font-garet text-red-400 text-xs">{error}</p>}
             {submitted && <p className="font-garet text-green-400 text-xs">Terima kasih atas doa dan harapannya!</p>}
 
-            {/* Submit button */}
             <button
               onClick={handleSubmit}
-              className="w-full border border-white/40 text-white py-3 rounded-full text-sm font-garet tracking-wider hover:bg-white hover:text-[#1a0e0a] transition-all duration-300"
+              disabled={loading}
+              className="w-full border border-white/40 text-white py-3 rounded-full text-sm font-garet tracking-wider hover:bg-white hover:text-[#1a0e0a] transition-all duration-300 disabled:opacity-50"
             >
-              Kirim Doa
+              {loading ? "Mengirim..." : "Kirim Doa"}
             </button>
-          </div>
+          </motion.div>
         </motion.div>
+
+        {/* Wishes list */}
+        {wishes.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mt-10"
+          >
+            <p className="font-garet text-white/60 text-xs mb-4 text-center">
+              {wishes.length} Ucapan
+            </p>
+            <div className="max-h-72 overflow-y-auto space-y-3 pr-1 scrollbar-thin">
+              {wishes.map((wish) => (
+                <div
+                  key={wish.id}
+                  className="bg-white/5 border border-white/15 rounded-lg px-4 py-3 text-left"
+                >
+                  <div className="flex items-center justify-between mb-1">
+                    <p className="font-garet text-white text-sm font-semibold">{wish.name}</p>
+                    {wish.attendance && (
+                      <span
+                        className={`font-garet text-[10px] px-2 py-0.5 rounded-full ${
+                          wish.attendance === "hadir"
+                            ? "bg-green-500/20 text-green-400"
+                            : "bg-red-500/20 text-red-400"
+                        }`}
+                      >
+                        {wish.attendance === "hadir" ? "Hadir" : "Tidak hadir"}
+                      </span>
+                    )}
+                  </div>
+                  <p className="font-garet text-white/80 text-sm mb-1">{wish.message}</p>
+                  <p className="font-garet text-white/40 text-[10px]">{formatTimestamp(wish.timestamp)}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
       </div>
     </section>
   );
