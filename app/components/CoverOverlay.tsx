@@ -35,7 +35,7 @@ export default function CoverOverlay({
         {/* Background image — fullscreen, shifted slightly down */}
         <div
           className="absolute inset-0 bg-cover bg-no-repeat"
-          style={{ backgroundImage: "url('/images/foto1.jpeg')", backgroundPosition: "center 80%" }}
+          style={{ backgroundImage: "url('/images/foto1.jpeg')", backgroundPosition: "center 50%" }}
         />
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/50" />
@@ -53,7 +53,7 @@ export default function CoverOverlay({
         </motion.div>
 
         {/* Bottom section: guest info, button, disclaimer */}
-        <div className="relative z-10 flex flex-col items-center pb-32 sm:pb-36 md:pb-40 px-6 w-full">
+        <div className="relative z-10 flex flex-col items-center pb-6 sm:pb-20 md:pb-28 px-6 w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
