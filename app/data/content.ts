@@ -24,7 +24,7 @@ export const weddingContent: WeddingContent = {
   event: {
     type: "Resepsi Pernikahan",
     date: "Minggu, 17 Agustus 2026",
-    time: "13.00 WITA S/d Selesai",
+    time: "13.00 WITA - Selesai",
     location: "BR. KANGIN, DESA KALIANGET, SERIRIT, BULELENG",
     mapsUrl: "https://maps.app.goo.gl/c7APYJv4iSimrcWw9",
   },

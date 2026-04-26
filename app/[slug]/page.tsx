@@ -5,9 +5,8 @@ import { useParams } from "next/navigation";
 import { useAudio } from "../hooks/useAudio";
 import CoverOverlay from "../components/CoverOverlay";
 import HeroSection from "../components/HeroSection";
-import InvitationText from "../components/InvitationText";
 import CoupleSection from "../components/CoupleSection";
-import EventDetails from "../components/EventDetails";
+import LoveStoryAndEvent from "../components/LoveStoryAndEvent";
 import QuoteSection from "../components/QuoteSection";
 import WishesSection from "../components/WishesSection";
 import ClosingSection from "../components/ClosingSection";
@@ -16,7 +15,6 @@ import Footer from "../components/Footer";
 import MusicToggle from "../components/MusicToggle";
 import AnimatedSection from "../components/AnimatedSection";
 
-import LoveStory from "../components/LoveStory";
 import VideoSection from "../components/VideoSection";
 import DigitalEnvelope from "../components/DigitalEnvelope";
 import SectionDivider from "../components/SectionDivider";
@@ -53,18 +51,7 @@ export default function InvitationPage() {
         <>
           <HeroSection groom={groom} bride={bride} />
           <CoupleSection />
-          <SectionDivider />
-          <AnimatedSection>
-            <LoveStory />
-          </AnimatedSection>
-          <SectionDivider />
-          <AnimatedSection>
-            <VideoSection />
-          </AnimatedSection>
-          <SectionDivider />
-          <AnimatedSection>
-            <EventDetails />
-          </AnimatedSection>
+          <LoveStoryAndEvent />
           <SectionDivider />
           <AnimatedSection>
             <QuoteSection />
