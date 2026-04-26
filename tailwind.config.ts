@@ -23,6 +23,32 @@ const config: Config = {
       fontFamily: {
         serif: ["var(--font-playfair)", "Georgia", "serif"],
         script: ["var(--font-great-vibes)", "cursive"],
+        brittany: ["Brittany", "cursive"],
+        garet: ["Garet", "sans-serif"],
+      },
+      keyframes: {
+        "music-bar-1": {
+          "0%, 100%": { height: "14px" },
+          "50%": { height: "6px" },
+        },
+        "music-bar-2": {
+          "0%, 100%": { height: "18px" },
+          "50%": { height: "8px" },
+        },
+        "music-bar-3": {
+          "0%, 100%": { height: "10px" },
+          "50%": { height: "18px" },
+        },
+        "music-bar-4": {
+          "0%, 100%": { height: "16px" },
+          "50%": { height: "6px" },
+        },
+      },
+      animation: {
+        "music-bar-1": "music-bar-1 0.8s ease-in-out infinite",
+        "music-bar-2": "music-bar-2 0.6s ease-in-out infinite",
+        "music-bar-3": "music-bar-3 0.9s ease-in-out infinite",
+        "music-bar-4": "music-bar-4 0.7s ease-in-out infinite",
       },
     },
   },

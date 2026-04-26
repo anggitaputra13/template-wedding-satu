@@ -29,12 +29,12 @@ function parseNames(slug: string): { groom: string; bride: string } {
     const bride = parts[1].charAt(0).toUpperCase() + parts[1].slice(1).toLowerCase();
     return { groom, bride };
   }
-  return { groom: "Anggita", bride: "Cindy" };
+  return { groom: "Satria", bride: "Heppa" };
 }
 
 export default function InvitationPage() {
   const params = useParams();
-  const slug = typeof params.slug === "string" ? params.slug : "Anggita-Cindy";
+  const slug = typeof params.slug === "string" ? params.slug : "Satria-Heppa";
   const { groom, bride } = parseNames(slug);
 
   const [isOpen, setIsOpen] = useState(false);

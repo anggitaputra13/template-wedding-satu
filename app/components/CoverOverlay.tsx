@@ -1,13 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
-
-const slideshowImages = [
-  "/images/walpaper1.jpeg",
-  "/images/walpaper2.jpeg",
-  "/images/walpaper-3.jpeg",
-];
+import { useEffect } from "react";
 
 interface CoverOverlayProps {
   onOpen: () => void;
@@ -18,24 +12,15 @@ interface CoverOverlayProps {
 
 export default function CoverOverlay({
   onOpen,
-  groom = "Anggita",
-  bride = "Cindy",
+  groom = "Satria",
+  bride = "Heppa",
   guestName = "Tamu Undangan",
 }: CoverOverlayProps) {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = "";
     };
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slideshowImages.length);
-    }, 3000);
-    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -47,72 +32,86 @@ export default function CoverOverlay({
         transition={{ duration: 0.8, ease: "easeInOut" }}
         className="fixed inset-0 z-50 flex flex-col items-center justify-between text-center"
       >
-        {/* Slideshow background */}
-        {slideshowImages.map((src, i) => (
-          <div
-            key={src}
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
-            style={{
-              backgroundImage: `url(${src})`,
-              opacity: i === currentSlide ? 1 : 0,
-            }}
-          />
-        ))}
+        {/* Background image — fullscreen, shifted slightly down */}
+        <div
+          className="absolute inset-0 bg-cover bg-no-repeat"
+          style={{ backgroundImage: "url('/images/foto1.jpeg')", backgroundPosition: "center 80%" }}
+        />
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/50" />
 
-        {/* Top section: UNDANGAN, couple names, date */}
-        <div className="relative z-10 flex flex-col items-center pt-10 sm:pt-14 md:pt-18 px-6">
-          <img
-            src="/images/ornament.svg"
-            alt=""
-            className="w-24 sm:w-32 md:w-40 mb-3 opacity-70 invert"
-          />
-
-          <p className="text-white tracking-[0.3em] text-base sm:text-lg md:text-xl uppercase mb-3 font-bold">
-            Undangan
-          </p>
-
-          <h1 className="font-script text-5xl sm:text-6xl md:text-7xl text-white mb-3 drop-shadow-lg">
+        {/* Top section: couple names */}
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+          className="relative z-10 flex flex-col items-center pt-16 sm:pt-20 md:pt-24 px-6"
+        >
+          <h1 className="font-brittany text-5xl sm:text-5xl md:text-7xl text-white/80 whitespace-nowrap font-thin">
             {groom} &amp; {bride}
           </h1>
-
-          <p className="text-white/90 text-base sm:text-lg md:text-xl font-medium">
-            Minggu, 17 Agustus 2026
-          </p>
-        </div>
+        </motion.div>
 
         {/* Bottom section: guest info, button, disclaimer */}
-        <div className="relative z-10 flex flex-col items-center pb-10 sm:pb-14 md:pb-16 px-6 w-full">
-          <div className="mb-5 space-y-1">
-            <p className="text-white text-base sm:text-lg">
-              Kpd Bpk/Ibu/Saudara/i
+        <div className="relative z-10 flex flex-col items-center pb-32 sm:pb-36 md:pb-40 px-6 w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+          >
+            <p className="font-garet text-white/75 text-base sm:text-lg">
+              Kepada Bapak/Ibu/Saudara/i.
             </p>
-            <p className="text-white text-lg sm:text-xl md:text-2xl font-bold">
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7, duration: 0.8 }}
+            className="mt-1"
+          >
+            <p className="font-garet font-medium text-white text-lg sm:text-xl md:text-2xl">
               {guestName}
             </p>
-          </div>
+          </motion.div>
 
-          <button
-            onClick={onOpen}
-            className="flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/60 text-white px-8 py-3 rounded-full text-sm sm:text-base tracking-wider hover:bg-white hover:text-black transition-colors duration-300 mb-5"
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.8 }}
+            className="mt-4"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="2" y="4" width="20" height="16" rx="2" />
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-            </svg>
-            Buka Undangan
-          </button>
+            <button
+              onClick={onOpen}
+              className="font-garet flex items-center gap-2 bg-transparent backdrop-blur-md border border-white/40 text-white px-10 py-3 rounded-full text-sm sm:text-base tracking-widest hover:bg-white hover:text-black transition-colors duration-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+              </svg>
+              Buka Undangan
+            </button>
+          </motion.div>
 
-          <p className="text-white/70 text-[8px] sm:text-[9px] font-medium whitespace-nowrap">
-            *Mohon maaf apabila ada kesalahan penulisan nama/gelar
-          </p>
-
-          <img
-            src="/images/ornament.svg"
-            alt=""
-            className="w-24 sm:w-32 md:w-40 mt-4 opacity-70 rotate-180 invert"
-          />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.1, duration: 0.6 }}
+            className="mt-3"
+          >
+            <p className="font-garet text-white/70 text-[10px] sm:text-[10px] font-semibold whitespace-nowrap">
+              *Mohon maaf bila ada kesalahan nama/gelar
+            </p>
+          </motion.div>
         </div>
       </motion.div>
     </AnimatePresence>

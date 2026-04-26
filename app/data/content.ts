@@ -2,7 +2,7 @@ import { WeddingContent } from "../types";
 
 export const weddingContent: WeddingContent = {
   groom: {
-    name: "Anggita",
+    name: "Satria",
     fullName: "PUTU MAS ANGGITA PUTRA, S.KOM",
     photo: "/images/aku.jpeg",
     role: "PUTRA PERTAMA",
@@ -12,7 +12,7 @@ export const weddingContent: WeddingContent = {
     instagram: "anggitaputra13",
   },
   bride: {
-    name: "Cindy",
+    name: "Heppa",
     fullName: "CINDY PARAMITA DEWI, S.FARM",
     photo: "/images/kamu.jpeg",
     role: "PUTRI PERTAMA",
