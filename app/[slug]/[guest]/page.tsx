@@ -5,7 +5,6 @@ import { useParams } from "next/navigation";
 import { useAudio } from "../../hooks/useAudio";
 import CoverOverlay from "../../components/CoverOverlay";
 import HeroSection from "../../components/HeroSection";
-import CountdownTimer from "../../components/CountdownTimer";
 import InvitationText from "../../components/InvitationText";
 import CoupleSection from "../../components/CoupleSection";
 import EventDetails from "../../components/EventDetails";
@@ -74,12 +73,7 @@ export default function InvitationPage() {
 
       {isOpen && (
         <>
-          <AnimatedSection>
-            <HeroSection groom={groom} bride={bride} />
-          </AnimatedSection>
-          <AnimatedSection>
-            <CountdownTimer />
-          </AnimatedSection>
+          <HeroSection groom={groom} bride={bride} />
           <AnimatedSection>
             <InvitationText />
             <CoupleSection />

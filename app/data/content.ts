@@ -31,10 +31,10 @@ export const weddingContent: WeddingContent = {
   targetDate: "2026-08-17T13:00:00+08:00",
   quote: {
     sanskrit:
-      "Grbhnāmi te saubhagatvāya hastam mayā patyā jaradastir yathāsah, Bhago aryamā savitā purandhir mahyam tvādur gārhapatyāya devāh.",
+      "Ihaiva stam mā vi yaustam,\nVisvām āyur vyasnutam.\nKrindantau putrair naptrbhih,\nModamānau sve grhe.",
     translation:
       "Kugenggam tanganmu untuk kebahagiaan kita, agar engkau mencapai usia tua bersamaku sebagai suamimu. Para dewa — Bhaga, Aryaman, Savitar, dan Purandhi — memberikanmu kepadaku untuk menjadi ibu rumah tangga.",
-    source: "RGVEDA : X.85.36",
+    source: "Rgveda : X.85.42",
   },
   gallery: {
     images: [
