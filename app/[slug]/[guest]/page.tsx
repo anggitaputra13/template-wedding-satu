@@ -74,10 +74,7 @@ export default function InvitationPage() {
       {isOpen && (
         <>
           <HeroSection groom={groom} bride={bride} />
-          <AnimatedSection>
-            <InvitationText />
-            <CoupleSection />
-          </AnimatedSection>
+          <CoupleSection />
           <SectionDivider />
           <AnimatedSection>
             <LoveStory />

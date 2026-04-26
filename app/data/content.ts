@@ -4,7 +4,7 @@ export const weddingContent: WeddingContent = {
   groom: {
     name: "Satria",
     fullName: "PUTU MAS ANGGITA PUTRA, S.KOM",
-    photo: "/images/aku.jpeg",
+    photo: "/images/groom.jpeg",
     role: "PUTRA PERTAMA",
     parentLabel: "PUTRA PERTAMA DARI PASANGAN",
     parents: "Putu Masdika dan Nyoman Sri Rahayu",
@@ -14,7 +14,7 @@ export const weddingContent: WeddingContent = {
   bride: {
     name: "Heppa",
     fullName: "CINDY PARAMITA DEWI, S.FARM",
-    photo: "/images/kamu.jpeg",
+    photo: "/images/bridge.png",
     role: "PUTRI PERTAMA",
     parentLabel: "PUTRI PERTAMA DARI PASANGAN",
     parents: "I Made Suastha dan Ni Nyoman Sudanti",

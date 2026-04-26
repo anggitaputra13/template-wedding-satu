@@ -122,31 +122,46 @@ export default function HeroSection({
       {/* Text content layout — absolute to guarantee it stays within the section */}
       <div className="absolute inset-0 z-10 flex flex-col px-5 py-[8dvh] overflow-hidden">
         {/* Top area: Header + Couple names — centered horizontally */}
-        <div className="flex flex-col items-center text-center">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="flex flex-col items-center text-center"
+        >
           <p className="font-garet uppercase tracking-[0.3em] text-white text-[10px] md:text-xs leading-none">
             WE ARE GETTING MARRIED
           </p>
           <h1 className="font-brittany text-white whitespace-nowrap mt-[1dvh] text-center" style={{ fontSize: 'clamp(3.5rem, 11vw, 6rem)' }}>
             {groom} &amp; {bride}
           </h1>
-        </div>
+        </motion.div>
 
         {/* Middle area: Sanskrit quote + source */}
-        <div className="text-center px-4" style={{ marginTop: '5dvh' }}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.6 }}
+          className="text-center px-4"
+          style={{ marginTop: '5dvh' }}
+        >
           <p className="font-garet italic text-white text-base md:text-lg leading-relaxed whitespace-pre-line">
             {weddingContent.quote.sanskrit}
           </p>
           <p className="font-garet text-white text-xs md:text-sm mt-1 opacity-80">
             ({weddingContent.quote.source})
           </p>
-        </div>
+        </motion.div>
 
         {/* Spacer */}
         <div className="flex-1 min-h-0" />
 
         {/* Bottom area: Countdown (left) | divider | Save The Date (right) — evenly split */}
-        {/* Bottom area: Countdown (left) | divider | Save The Date (right) — evenly split */}
-        <div className="flex items-stretch py-7">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="flex items-stretch py-7"
+        >
           {/* Countdown 2×2 grid — takes half */}
           <div className="flex-1 grid grid-cols-2 gap-x-5 gap-y-3 font-garet text-white">
             <div className="flex items-baseline gap-1.5">
@@ -184,7 +199,7 @@ export default function HeroSection({
               Save The Date
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
