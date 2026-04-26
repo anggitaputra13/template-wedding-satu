@@ -9,6 +9,7 @@ import CoupleSection from "../../components/CoupleSection";
 import LoveStoryAndEvent from "../../components/LoveStoryAndEvent";
 import QuoteSection from "../../components/QuoteSection";
 import WishesSection from "../../components/WishesSection";
+import DressCodeAndRsvp from "../../components/DressCodeAndRsvp";
 import ClosingSection from "../../components/ClosingSection";
 import GallerySection from "../../components/GallerySection";
 import Footer from "../../components/Footer";
@@ -74,18 +75,7 @@ export default function InvitationPage() {
           <HeroSection groom={groom} bride={bride} />
           <CoupleSection />
           <LoveStoryAndEvent />
-          <SectionDivider />
-          <AnimatedSection>
-            <QuoteSection />
-          </AnimatedSection>
-          <SectionDivider />
-          <AnimatedSection>
-            <DigitalEnvelope />
-          </AnimatedSection>
-          <SectionDivider />
-          <AnimatedSection>
-            <WishesSection />
-          </AnimatedSection>
+          <DressCodeAndRsvp />
           <SectionDivider />
           <AnimatedSection>
             <ClosingSection />
