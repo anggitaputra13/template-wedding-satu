@@ -103,16 +103,6 @@ export default function DressCodeAndRsvp() {
 
   return (
     <section className="relative py-14 px-6 overflow-hidden">
-      {/* Blurred background */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url(/images/foto3.jpeg)",
-          filter: "blur(4px) brightness(0.2)",
-          transform: "scale(1.1)",
-        }}
-      />
-      <div className="absolute inset-0 bg-[#1a0e0a]/60" />
 
       <div className="relative z-10 max-w-lg mx-auto">
 

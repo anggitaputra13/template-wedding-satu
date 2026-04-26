@@ -7,6 +7,7 @@ import CoverOverlay from "../components/CoverOverlay";
 import HeroSection from "../components/HeroSection";
 import CoupleSection from "../components/CoupleSection";
 import LoveStoryAndEvent from "../components/LoveStoryAndEvent";
+import VideoBackgroundSection from "../components/VideoBackgroundSection";
 import QuoteSection from "../components/QuoteSection";
 import WishesSection from "../components/WishesSection";
 import DressCodeAndRsvp from "../components/DressCodeAndRsvp";
@@ -52,8 +53,10 @@ export default function InvitationPage() {
         <>
           <HeroSection groom={groom} bride={bride} />
           <CoupleSection />
-          <LoveStoryAndEvent />
-          <DressCodeAndRsvp />
+          <VideoBackgroundSection>
+            <LoveStoryAndEvent />
+            <DressCodeAndRsvp />
+          </VideoBackgroundSection>
           <SectionDivider />
           <AnimatedSection>
             <ClosingSection />

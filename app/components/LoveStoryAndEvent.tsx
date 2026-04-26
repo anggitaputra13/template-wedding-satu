@@ -8,16 +8,6 @@ export default function LoveStoryAndEvent() {
 
   return (
     <section className="relative py-16 px-6 overflow-hidden">
-      {/* Blurred background photo */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url(/images/foto5.jpeg)",
-          filter: "blur(4px) brightness(0.25)",
-          transform: "scale(1.1)",
-        }}
-      />
-      <div className="absolute inset-0 bg-[#1a0e0a]/50" />
 
       <div className="relative z-10 max-w-2xl mx-auto">
         {/* THE BEGINNING OF LOVE */}
