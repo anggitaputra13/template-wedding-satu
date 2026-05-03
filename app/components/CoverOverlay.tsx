@@ -37,6 +37,7 @@ export default function CoverOverlay({
         <img
           src={media.foto1}
           alt=""
+          loading="eager"
           className="absolute inset-0 w-full h-full object-cover"
         />
         {/* Dark overlay */}

@@ -78,6 +78,7 @@ export default function OurLoveInFrame() {
               <img
                 src={src}
                 alt={`Gallery ${i + 1}`}
+                loading="lazy"
                 className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
               />
             </motion.div>

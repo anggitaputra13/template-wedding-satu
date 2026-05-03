@@ -45,6 +45,7 @@ function CoupleFullPage({
         <img
           src={person.photo}
           alt={person.name}
+          loading="lazy"
           className="absolute inset-0 w-full h-full object-cover"
           style={imageScale !== 1 ? { transform: `scale(${imageScale})` } : undefined}
         />

@@ -15,8 +15,8 @@ export const media = {
   foto8: gdriveImg("1Sju4D1yyKS_4tvaORfeiBHRnpCrjgDMl"),
   foto9: gdriveImg("1KFFRq_IMr-A3rssLJA2Ztif8eeDhhNg3"),
   foto10: gdriveImg("1LX86UW6iL5G8HU7Vp9-3T8yMw2R9SzaS"),
-  groom: "/images/groom.jpeg",
-  bride: "/images/bridge.jpeg",
+  groom: gdriveImg("10fr8X2Ha4MPxGfvgccb3X-hQwo392yyH"),
+  bride: gdriveImg("1DimDzpZjznW2QggQyxDq7SF3VQ-6xZpj"),
   videoUs: "/audio/us.MP4",
   musicBeautifulInWhite: "/audio/beautiful-in-white.mp3",
 } as const;
