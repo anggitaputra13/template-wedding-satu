@@ -5,16 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { weddingContent } from "../data/content";
 import { calculateCountdown } from "../utils/countdown";
 
-const SLIDESHOW_IMAGES = [
-  "/images/foto2.jpeg",
-  "/images/foto3.jpeg",
-  "/images/foto4.jpeg",
-  "/images/foto5.jpeg",
-  "/images/foto6.jpeg",
-  "/images/foto7.jpeg",
-  "/images/foto8.jpeg",
-  "/images/foto9.jpeg",
-];
+import { SLIDESHOW_IMAGES } from "../data/media";
 
 export default function HeroSection({
   groom = "Satria",
@@ -44,15 +35,15 @@ export default function HeroSection({
     }
     intervalRef.current = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % SLIDESHOW_IMAGES.length);
-    }, 5000);
+    }, 3000);
   }, []);
 
 
-  // Auto-advance slideshow every 5 seconds
+  // Auto-advance slideshow every 3 seconds
   useEffect(() => {
     intervalRef.current = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % SLIDESHOW_IMAGES.length);
-    }, 5000);
+    }, 3000);
     return () => {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);

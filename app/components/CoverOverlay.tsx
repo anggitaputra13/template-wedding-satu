@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
+import { media } from "../data/media";
 
 interface CoverOverlayProps {
   onOpen: () => void;
@@ -32,10 +33,11 @@ export default function CoverOverlay({
         transition={{ duration: 0.8, ease: "easeInOut" }}
         className="fixed inset-0 z-50 flex flex-col items-center justify-between text-center"
       >
-        {/* Background image — fullscreen, shifted slightly down */}
-        <div
-          className="absolute inset-0 bg-cover bg-no-repeat"
-          style={{ backgroundImage: "url('/images/foto1.jpeg')", backgroundPosition: "center 50%" }}
+        {/* Background image — fullscreen */}
+        <img
+          src={media.foto1}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
         />
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/50" />

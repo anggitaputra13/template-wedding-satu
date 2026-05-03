@@ -1,25 +1,26 @@
 import { WeddingContent } from "../types";
+import { media } from "./media";
 
 export const weddingContent: WeddingContent = {
   groom: {
     name: "Satria",
-    fullName: "PUTU MAS SatriaPUTRA, S.KOM",
-    photo: "/images/groom.jpeg",
-    role: "PUTRA PERTAMA",
-    parentLabel: "PUTRA PERTAMA DARI PASANGAN",
-    parents: "Putu Masdika dan Nyoman Sri Rahayu",
-    address: "Br. Kangin, Desa Kalianget, Seririt, Buleleng",
-    instagram: "Satriaputra13",
+    fullName: "Ketut Satria Putra",
+    photo: media.groom,
+    role: "PUTRA KEEMPAT",
+    parentLabel: "PUTRA KEEMPAT DARI PASANGAN",
+    parents: "Putu Satria Putra dan Nyoman Satria Putri",
+    address: "Br. Kangin, Desa Padangsambian, Denpasar Barat, Denpasar",
+    instagram: "heppasatria",
   },
   bride: {
     name: "Heppa",
-    fullName: "Heppa PARAMITA DEWI, S.FARM",
-    photo: "/images/bridge.png",
-    role: "PUTRI PERTAMA",
-    parentLabel: "PUTRI PERTAMA DARI PASANGAN",
-    parents: "I Made Suastha dan Ni Nyoman Sudanti",
-    address: "Br. Kauripan, Desa Renon, Denpasar Selatan, Denpasar",
-    instagram: "Heppaparamita",
+    fullName: "Kadek Dwi Heppayani",
+    photo: media.bride,
+    role: "PUTRI KEDUA",
+    parentLabel: "PUTRI KEDUA DARI PASANGAN",
+    parents: "I Nyoman Tastra dan Ni Ketut Tastra",
+    address: "Br. Kangin, Desa Padangsambian, Denpasar Barat, Denpasa",
+    instagram: "heppasatria",
   },
   event: {
     type: "Resepsi Pernikahan",

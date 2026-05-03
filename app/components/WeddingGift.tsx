@@ -7,13 +7,13 @@ const bankAccounts = [
   {
     bank: "BCA",
     number: "1234567890",
-    name: "Putu Mas SatriaPutra",
+    name: "Ketut Satria Putra",
     gradient: "from-[#1a3a6b] to-[#0d2240]",
   },
   {
     bank: "BRI",
     number: "0987654321",
-    name: "Heppa Paramita Dewi",
+    name: "Kadek Dwi Heppayani",
     gradient: "from-[#003d79] to-[#f47920]",
   },
 ];

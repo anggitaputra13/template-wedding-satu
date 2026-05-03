@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode } from "react";
+import { media } from "../data/media";
 
 export default function VideoBackgroundSection({ children }: { children: ReactNode }) {
   return (
@@ -14,7 +15,7 @@ export default function VideoBackgroundSection({ children }: { children: ReactNo
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src="/audio/us.MP4" type="video/mp4" />
+          <source src={media.videoUs} type="video/mp4" />
         </video>
       </div>
       <div className="absolute inset-0 bg-black/70" />

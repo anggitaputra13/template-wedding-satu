@@ -3,18 +3,7 @@
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const GALLERY_IMAGES = [
-  "/images/foto1.jpeg",
-  "/images/foto2.jpeg",
-  "/images/foto3.jpeg",
-  "/images/foto4.jpeg",
-  "/images/foto5.jpeg",
-  "/images/foto6.jpeg",
-  "/images/foto7.jpeg",
-  "/images/foto8.jpeg",
-  "/images/foto9.jpeg",
-  "/images/foto10.jpeg",
-];
+import { GALLERY_IMAGES } from "../data/media";
 
 export default function OurLoveInFrame() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);

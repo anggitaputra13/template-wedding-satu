@@ -34,23 +34,27 @@ function CoupleFullPage({
       className="relative w-full overflow-hidden"
       style={{ height: viewportHeight }}
     >
-      {/* Full-screen background photo */}
-      <img
-        src={person.photo}
-        alt={person.name}
-        className="absolute inset-0 w-full h-full object-cover"
-        style={imageScale !== 1 ? { transform: `scale(${imageScale})` } : undefined}
-      />
-
-      {/* Dark gradient overlay at bottom */}
-      <div
+      {/* Background photo — fades in from left/right */}
+      <motion.div
+        initial={{ opacity: 0, x: isLeft ? -60 : 60 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.05 }}
+        transition={{ duration: 1, ease: "easeOut" }}
         className="absolute inset-0"
-        style={{
-          background: isLeft
-            ? "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 40%, transparent 70%)"
-            : "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 40%, transparent 70%)",
-        }}
-      />
+      >
+        <img
+          src={person.photo}
+          alt={person.name}
+          className="absolute inset-0 w-full h-full object-cover"
+          style={imageScale !== 1 ? { transform: `scale(${imageScale})` } : undefined}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 30%, rgba(0,0,0,0.2) 50%, transparent 70%)",
+          }}
+        />
+      </motion.div>
 
       {/* Text content — positioned at bottom */}
       <div
@@ -63,7 +67,7 @@ function CoupleFullPage({
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
           className="font-garet uppercase tracking-[0.25em] text-white/80 text-xs md:text-sm mb-2"
         >
           {label}
@@ -74,7 +78,7 @@ function CoupleFullPage({
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+          transition={{ duration: 0.6, delay: 0.9 }}
           className="font-serif font-bold text-white mb-3"
           style={{ fontSize: "clamp(2rem, 8vw, 3.5rem)" }}
         >
@@ -86,7 +90,7 @@ function CoupleFullPage({
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 1.0 }}
         >
           <p className="font-garet text-white/80 text-xs md:text-sm">
             {person.role === "PUTRA PERTAMA" ? "Putra pertama dari" : "Putri pertama dari"}
@@ -102,7 +106,7 @@ function CoupleFullPage({
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 1.1 }}
             href={`https://instagram.com/${person.instagram}`}
             target="_blank"
             rel="noopener noreferrer"
