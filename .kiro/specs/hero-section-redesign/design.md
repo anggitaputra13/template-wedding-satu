@@ -81,8 +81,8 @@ stateDiagram-v2
 
 ```typescript
 interface HeroSectionProps {
-  groom?: string;  // default: "Anggita"
-  bride?: string;  // default: "Cindy"
+  groom?: string;  // default: "Satria"
+  bride?: string;  // default: "Heppa"
 }
 ```
 

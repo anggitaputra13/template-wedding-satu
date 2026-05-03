@@ -8,18 +8,12 @@ import HeroSection from "../components/HeroSection";
 import CoupleSection from "../components/CoupleSection";
 import LoveStoryAndEvent from "../components/LoveStoryAndEvent";
 import VideoBackgroundSection from "../components/VideoBackgroundSection";
-import QuoteSection from "../components/QuoteSection";
-import WishesSection from "../components/WishesSection";
 import DressCodeAndRsvp from "../components/DressCodeAndRsvp";
-import ClosingSection from "../components/ClosingSection";
-import GallerySection from "../components/GallerySection";
+import WeddingGift from "../components/WeddingGift";
+import OurLoveInFrame from "../components/OurLoveInFrame";
+import ClosingMessage from "../components/ClosingMessage";
 import Footer from "../components/Footer";
 import MusicToggle from "../components/MusicToggle";
-import AnimatedSection from "../components/AnimatedSection";
-
-import VideoSection from "../components/VideoSection";
-import DigitalEnvelope from "../components/DigitalEnvelope";
-import SectionDivider from "../components/SectionDivider";
 
 function parseNames(slug: string): { groom: string; bride: string } {
   const parts = slug.split("-");
@@ -56,15 +50,12 @@ export default function InvitationPage() {
           <VideoBackgroundSection>
             <LoveStoryAndEvent />
             <DressCodeAndRsvp />
+            <WeddingGift />
           </VideoBackgroundSection>
-          <SectionDivider />
-          <AnimatedSection>
-            <ClosingSection />
-          </AnimatedSection>
-          <SectionDivider />
-          <AnimatedSection>
-            <GallerySection />
-          </AnimatedSection>
+          <OurLoveInFrame />
+          <VideoBackgroundSection>
+            <ClosingMessage groom={groom} bride={bride} />
+          </VideoBackgroundSection>
           <Footer />
           <MusicToggle isPlaying={audio.isPlaying} onToggle={audio.toggle} />
         </>

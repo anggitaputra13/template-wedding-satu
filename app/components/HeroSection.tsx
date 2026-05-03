@@ -17,8 +17,8 @@ const SLIDESHOW_IMAGES = [
 ];
 
 export default function HeroSection({
-  groom = "Anggita",
-  bride = "Cindy",
+  groom = "Satria",
+  bride = "Heppa",
 }: {
   groom?: string;
   bride?: string;
@@ -131,7 +131,7 @@ export default function HeroSection({
           <p className="font-garet uppercase tracking-[0.3em] text-white text-[10px] md:text-xs leading-none">
             WE ARE GETTING MARRIED
           </p>
-          <h1 className="font-brittany text-white whitespace-nowrap mt-[1dvh] text-center" style={{ fontSize: 'clamp(3.5rem, 11vw, 6rem)' }}>
+          <h1 className="font-brittany text-white whitespace-nowrap mt-[1dvh] text-center" style={{ fontSize: 'clamp(3rem, 10vw, 6rem)' }}>
             {groom} &amp; {bride}
           </h1>
         </motion.div>

@@ -16,8 +16,8 @@ const greatVibes = Great_Vibes({
 });
 
 export const metadata: Metadata = {
-  title: "Pernikahan Anggita & Cindy",
-  description: "Undangan Pernikahan Anggita & Cindy - 17 Agustus 2026",
+  title: "Pernikahan Satria& Heppa",
+  description: "Undangan Pernikahan Satria& Heppa - 17 Agustus 2026",
 };
 
 export default function RootLayout({

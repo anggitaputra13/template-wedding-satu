@@ -3,23 +3,23 @@ import { WeddingContent } from "../types";
 export const weddingContent: WeddingContent = {
   groom: {
     name: "Satria",
-    fullName: "PUTU MAS ANGGITA PUTRA, S.KOM",
+    fullName: "PUTU MAS SatriaPUTRA, S.KOM",
     photo: "/images/groom.jpeg",
     role: "PUTRA PERTAMA",
     parentLabel: "PUTRA PERTAMA DARI PASANGAN",
     parents: "Putu Masdika dan Nyoman Sri Rahayu",
     address: "Br. Kangin, Desa Kalianget, Seririt, Buleleng",
-    instagram: "anggitaputra13",
+    instagram: "Satriaputra13",
   },
   bride: {
     name: "Heppa",
-    fullName: "CINDY PARAMITA DEWI, S.FARM",
+    fullName: "Heppa PARAMITA DEWI, S.FARM",
     photo: "/images/bridge.png",
     role: "PUTRI PERTAMA",
     parentLabel: "PUTRI PERTAMA DARI PASANGAN",
     parents: "I Made Suastha dan Ni Nyoman Sudanti",
     address: "Br. Kauripan, Desa Renon, Denpasar Selatan, Denpasar",
-    instagram: "cindyparamita",
+    instagram: "Heppaparamita",
   },
   event: {
     type: "Resepsi Pernikahan",

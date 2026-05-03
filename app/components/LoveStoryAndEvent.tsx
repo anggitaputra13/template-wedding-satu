@@ -32,7 +32,7 @@ export default function LoveStoryAndEvent() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="font-garet text-white/85 text-sm md:text-base leading-relaxed text-justify"
           >
-            Kisah cinta Anggita dan Cindy bermula di kampus, dari sebuah pertemuan sederhana yang diam-diam menyimpan rasa. Di antara hiruk pikuk aktivitas perkuliahan, Anggita kerap melihat Cindy dari kejauhan. Ada ketertarikan yang tumbuh, namun saat itu ia hanya mampu memendamnya karena belum memiliki keberanian untuk menyapa. Hari demi hari berlalu, hingga akhirnya Anggita memberanikan diri untuk memperkenalkan diri—sebuah langkah kecil yang ternyata menjadi awal dari kisah besar mereka.
+            Kisah cinta Satriadan Heppa bermula di kampus, dari sebuah pertemuan sederhana yang diam-diam menyimpan rasa. Di antara hiruk pikuk aktivitas perkuliahan, Satriakerap melihat Heppa dari kejauhan. Ada ketertarikan yang tumbuh, namun saat itu ia hanya mampu memendamnya karena belum memiliki keberanian untuk menyapa. Hari demi hari berlalu, hingga akhirnya Satriamemberanikan diri untuk memperkenalkan diri—sebuah langkah kecil yang ternyata menjadi awal dari kisah besar mereka.
           </motion.p>
           <motion.p
             initial={{ opacity: 0, x: 30 }}
@@ -54,7 +54,7 @@ export default function LoveStoryAndEvent() {
               Janji Suci
             </p>
             <p className="font-garet text-white/85 text-sm md:text-base leading-relaxed text-justify">
-              Perjalanan mereka pun membawa pada sebuah momen penuh makna, ketika Anggita dengan penuh keyakinan menyatakan keseriusannya kepada Cindy. Dengan hati yang mantap, Cindy menerima, mengantarkan mereka menuju hari bahagia yang dipenuhi cinta dan haru. Kini, di hadapan keluarga dan orang-orang terkasih, Anggita dan Cindy mengikat janji suci, siap melangkah bersama sebagai pasangan hidup, saling menggenggam dalam setiap perjalanan kehidupan selamanya.
+              Perjalanan mereka pun membawa pada sebuah momen penuh makna, ketika Satriadengan penuh keyakinan menyatakan keseriusannya kepada Heppa. Dengan hati yang mantap, Heppa menerima, mengantarkan mereka menuju hari bahagia yang dipenuhi cinta dan haru. Kini, di hadapan keluarga dan orang-orang terkasih, Satriadan Heppa mengikat janji suci, siap melangkah bersama sebagai pasangan hidup, saling menggenggam dalam setiap perjalanan kehidupan selamanya.
             </p>
           </motion.div>
         </div>

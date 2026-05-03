@@ -65,18 +65,18 @@ Redesign the CoverOverlay component from an ornament-heavy slideshow layout to a
 
 - [x] 4. Update default couple names across the codebase
   - [x] 4.1 Update `app/data/content.ts` default names
-    - Change `groom.name` from `"Anggita"` to `"Satria"`
-    - Change `bride.name` from `"Cindy"` to `"Heppa"`
+    - Change `groom.name` from `"Satria"` to `"Satria"`
+    - Change `bride.name` from `"Heppa"` to `"Heppa"`
     - _Requirements: 11.1_
 
   - [x] 4.2 Update `app/[slug]/[guest]/page.tsx` parseNames fallback
-    - Change fallback return from `{ groom: "Anggita", bride: "Cindy" }` to `{ groom: "Satria", bride: "Heppa" }`
-    - Change default slug from `"Anggita-Cindy"` to `"Satria-Heppa"`
+    - Change fallback return from `{ groom: "Satria", bride: "Heppa" }` to `{ groom: "Satria", bride: "Heppa" }`
+    - Change default slug from `"Satria-Heppa"` to `"Satria-Heppa"`
     - _Requirements: 11.1, 11.2_
 
   - [x] 4.3 Update `app/[slug]/page.tsx` parseNames fallback
-    - Change fallback return from `{ groom: "Anggita", bride: "Cindy" }` to `{ groom: "Satria", bride: "Heppa" }`
-    - Change default slug from `"Anggita-Cindy"` to `"Satria-Heppa"`
+    - Change fallback return from `{ groom: "Satria", bride: "Heppa" }` to `{ groom: "Satria", bride: "Heppa" }`
+    - Change default slug from `"Satria-Heppa"` to `"Satria-Heppa"`
     - _Requirements: 11.1, 11.2_
 
 - [x] 5. Final checkpoint

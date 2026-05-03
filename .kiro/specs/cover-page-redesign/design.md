@@ -130,11 +130,11 @@ This enables `font-brittany` and `font-garet` Tailwind utility classes with appr
 
 ### Default Names Update
 
-**`app/data/content.ts`**: Change `groom.name` from `"Anggita"` to `"Satria"` and `bride.name` from `"Cindy"` to `"Heppa"`.
+**`app/data/content.ts`**: Change `groom.name` from `"Satria"` to `"Satria"` and `bride.name` from `"Heppa"` to `"Heppa"`.
 
-**`app/[slug]/[guest]/page.tsx`** and **`app/[slug]/page.tsx`**: Change the `parseNames` fallback from `{ groom: "Anggita", bride: "Cindy" }` to `{ groom: "Satria", bride: "Heppa" }`.
+**`app/[slug]/[guest]/page.tsx`** and **`app/[slug]/page.tsx`**: Change the `parseNames` fallback from `{ groom: "Satria", bride: "Heppa" }` to `{ groom: "Satria", bride: "Heppa" }`.
 
-**`app/components/CoverOverlay.tsx`**: Change default prop values from `groom = "Anggita"`, `bride = "Cindy"` to `groom = "Satria"`, `bride = "Heppa"`.
+**`app/components/CoverOverlay.tsx`**: Change default prop values from `groom = "Satria"`, `bride = "Heppa"` to `groom = "Satria"`, `bride = "Heppa"`.
 
 ## Data Models
 
