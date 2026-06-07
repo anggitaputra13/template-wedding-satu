@@ -18,7 +18,7 @@ export const media = {
   groom: gdriveImg("10fr8X2Ha4MPxGfvgccb3X-hQwo392yyH"),
   bride: gdriveImg("1DimDzpZjznW2QggQyxDq7SF3VQ-6xZpj"),
   videoUs: "/audio/us.MP4",
-  musicBeautifulInWhite: "/audio/beautiful-in-white.mp3",
+  musicBeautifulInWhite: "/audio/thousand-years.mp3",
 } as const;
 
 export const SLIDESHOW_IMAGES = [

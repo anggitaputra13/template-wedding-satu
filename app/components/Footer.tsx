@@ -30,7 +30,7 @@ export default function Footer() {
 
         {/* Instagram */}
         <a
-          href="https://www.instagram.com/lihatundanganku"
+          href=""
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Instagram"
@@ -43,7 +43,7 @@ export default function Footer() {
 
         {/* TikTok */}
         <a
-          href="https://www.tiktok.com/@lihatundanganku"
+          href=""
           target="_blank"
           rel="noopener noreferrer"
           aria-label="TikTok"

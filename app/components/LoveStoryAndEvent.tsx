@@ -32,7 +32,7 @@ export default function LoveStoryAndEvent() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="font-garet text-white/85 text-sm md:text-base leading-relaxed text-justify"
           >
-            Kisah cinta Satriadan Heppa bermula di kampus, dari sebuah pertemuan sederhana yang diam-diam menyimpan rasa. Di antara hiruk pikuk aktivitas perkuliahan, Satriakerap melihat Heppa dari kejauhan. Ada ketertarikan yang tumbuh, namun saat itu ia hanya mampu memendamnya karena belum memiliki keberanian untuk menyapa. Hari demi hari berlalu, hingga akhirnya Satriamemberanikan diri untuk memperkenalkan diri—sebuah langkah kecil yang ternyata menjadi awal dari kisah besar mereka.
+            Our story began in the simplest way—as classmates and friends. From junior high school, we grew up side by side, sharing laughter and small moments that we didn’t yet know would mean so much.Life took us in different directions during senior high school, but somehow, fate always brought us back together. Whether it was meeting on the street or crossing paths at a friend’s house next door, our story never truly paused—it was just waiting for the right time.Friendship slowly turned into love, and that love stayed.
           </motion.p>
           <motion.p
             initial={{ opacity: 0, x: 30 }}
@@ -41,7 +41,7 @@ export default function LoveStoryAndEvent() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="font-garet text-white/85 text-sm md:text-base leading-relaxed text-justify"
           >
-            Sejak saat itu, kedekatan mulai terjalin. Dari percakapan sederhana hingga kebersamaan yang semakin hangat, hubungan mereka tumbuh dan semakin dewasa. Mereka belajar untuk saling memahami, mendukung, dan menjadi tempat pulang satu sama lain di tengah berbagai kesibukan dan tantangan hidup.
+            For 12 years, we have walked through life together—through distance, challenges, and countless memories filled with both tears and laughter. We learned, we grew, and we held on to each other through it all.What once was just a dream has now become our reality—standing side by side, working in the place we once wished for, and building a life we are truly grateful for.
           </motion.p>
 
           <motion.div
@@ -50,11 +50,8 @@ export default function LoveStoryAndEvent() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.3 }}
           >
-            <p className="font-garet text-white/90 text-sm md:text-base font-semibold mb-1">
-              Janji Suci
-            </p>
             <p className="font-garet text-white/85 text-sm md:text-base leading-relaxed text-justify">
-              Perjalanan mereka pun membawa pada sebuah momen penuh makna, ketika Satriadengan penuh keyakinan menyatakan keseriusannya kepada Heppa. Dengan hati yang mantap, Heppa menerima, mengantarkan mereka menuju hari bahagia yang dipenuhi cinta dan haru. Kini, di hadapan keluarga dan orang-orang terkasih, Satriadan Heppa mengikat janji suci, siap melangkah bersama sebagai pasangan hidup, saling menggenggam dalam setiap perjalanan kehidupan selamanya.
+            And now, a new chapter begins.With hearts full of love and excitement, we are ready to continue this journey as husband and wife, hand in hand, for all the years to come.
             </p>
           </motion.div>
         </div>
@@ -73,69 +70,38 @@ export default function LoveStoryAndEvent() {
           <div className="h-[2px] w-full bg-white/40 mt-4" />
         </motion.div>
 
-        {/* Two column event cards */}
+        {/* Single event card — centered */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="grid grid-cols-2 gap-4 md:gap-8"
+          className="text-center"
         >
-          {/* Left card — Resepsi */}
-          <div className="text-center">
-            <p className="font-serif italic text-white/90 text-base md:text-lg mb-4">
-              Wedding Reception
-            </p>
-            <p className="font-garet text-white font-bold text-sm md:text-lg mb-1 whitespace-nowrap">
-              {event.date}
-            </p>
-            <p className="font-garet italic text-white/80 text-xs md:text-sm mb-3">
-              Pukul {event.time}
-            </p>
-            <p className="font-garet text-white/70 text-[10px] md:text-xs leading-relaxed mb-4">
-              Bertempat di {event.location.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())}
-            </p>
-            <a
-              href={event.mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/30 bg-white/10 backdrop-blur-sm text-white text-[10px] md:text-xs hover:bg-white/20 transition-colors"
-            >
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
-              Google Maps
-            </a>
-          </div>
-
-          {/* Right card — same event */}
-          <div className="text-center">
-            <p className="font-serif italic text-white/90 text-base md:text-lg mb-4">
-              Wedding Reception
-            </p>
-            <p className="font-garet text-white font-bold text-sm md:text-lg mb-1 whitespace-nowrap">
-              {event.date}
-            </p>
-            <p className="font-garet italic text-white/80 text-xs md:text-sm mb-3">
-              Pukul {event.time}
-            </p>
-            <p className="font-garet text-white/70 text-[10px] md:text-xs leading-relaxed mb-4">
-              Bertempat di {event.location.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())}
-            </p>
-            <a
-              href={event.mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/30 bg-white/10 backdrop-blur-sm text-white text-[10px] md:text-xs hover:bg-white/20 transition-colors"
-            >
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
-              Google Maps
-            </a>
-          </div>
+          <p className="font-serif italic text-white/90 text-lg md:text-xl mb-5">
+            {event.type}
+          </p>
+          <p className="font-garet text-white font-bold text-base md:text-lg mb-1">
+            {event.date}
+          </p>
+          <p className="font-garet italic text-white/80 text-sm md:text-base mb-4">
+            Pukul {event.time}
+          </p>
+          <p className="font-garet text-white/70 text-xs md:text-sm leading-relaxed mb-6">
+            Bertempat di {event.location}
+          </p>
+          <a
+            href={event.mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/30 bg-white/10 backdrop-blur-sm text-white text-xs md:text-sm hover:bg-white/20 transition-colors"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            Google Maps
+          </a>
         </motion.div>
       </div>
     </section>

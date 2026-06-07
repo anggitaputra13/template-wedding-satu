@@ -80,11 +80,22 @@ function CoupleFullPage({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.9 }}
-          className="font-serif font-bold text-white mb-3"
+          className="font-serif font-bold text-white mb-1"
           style={{ fontSize: "clamp(2rem, 8vw, 3.5rem)" }}
         >
           {person.name}
         </motion.h2>
+
+        {/* Full name */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.95 }}
+          className="font-garet text-white/90 text-sm md:text-base mb-3"
+        >
+          {person.fullName}
+        </motion.p>
 
         {/* Parent info */}
         <motion.div
@@ -94,7 +105,7 @@ function CoupleFullPage({
           transition={{ duration: 0.6, delay: 1.0 }}
         >
           <p className="font-garet text-white/80 text-xs md:text-sm">
-            {person.role === "PUTRA PERTAMA" ? "Putra pertama dari" : "Putri pertama dari"}
+            {person.parentLabel}
           </p>
           <p className="font-garet text-white/90 text-sm md:text-base mt-0.5">
             {person.parents}

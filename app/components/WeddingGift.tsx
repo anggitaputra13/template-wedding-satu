@@ -6,15 +6,17 @@ import { motion, AnimatePresence } from "framer-motion";
 const bankAccounts = [
   {
     bank: "BCA",
-    number: "1234567890",
-    name: "Ketut Satria Putra",
+    number: "6485334479",
+    name: "I NYOMAN SATRIA WIRADINATA ",
     gradient: "from-[#1a3a6b] to-[#0d2240]",
+    logo: "BCA",
   },
   {
-    bank: "BRI",
-    number: "0987654321",
-    name: "Kadek Dwi Heppayani",
+    bank: "BML",
+    number: "7730000751006",
+    name: "I N. S. WIRADINATA",
     gradient: "from-[#003d79] to-[#f47920]",
+    logo: "BML",
   },
 ];
 

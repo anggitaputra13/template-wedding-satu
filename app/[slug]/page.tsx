@@ -8,7 +8,6 @@ import HeroSection from "../components/HeroSection";
 import CoupleSection from "../components/CoupleSection";
 import LoveStoryAndEvent from "../components/LoveStoryAndEvent";
 import VideoBackgroundSection from "../components/VideoBackgroundSection";
-import DressCodeAndRsvp from "../components/DressCodeAndRsvp";
 import WeddingGift from "../components/WeddingGift";
 import OurLoveInFrame from "../components/OurLoveInFrame";
 import ClosingMessage from "../components/ClosingMessage";
@@ -49,7 +48,6 @@ export default function InvitationPage() {
           <CoupleSection />
           <VideoBackgroundSection>
             <LoveStoryAndEvent />
-            <DressCodeAndRsvp />
             <WeddingGift />
           </VideoBackgroundSection>
           <OurLoveInFrame />

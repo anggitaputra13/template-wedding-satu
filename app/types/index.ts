@@ -25,10 +25,19 @@ export interface EventInfo {
   mapsUrl: string;
 }
 
+export interface EventInfo2 {
+  type: string;
+  date: string;
+  time: string;
+  location: string;
+  mapsUrl: string;
+}
+
 export interface WeddingContent {
   groom: CoupleInfo;
   bride: CoupleInfo;
   event: EventInfo;
+  event2: EventInfo2;
   targetDate: string;
   quote: {
     sanskrit: string;
