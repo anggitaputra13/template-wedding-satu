@@ -2,17 +2,19 @@
 
 import { useState } from "react";
 import { useParams } from "next/navigation";
-import { useAudio } from "../../hooks/useAudio";
-import CoverOverlay from "../../components/CoverOverlay";
-import HeroSection from "../../components/HeroSection";
-import CoupleSection from "../../components/CoupleSection";
-import LoveStoryAndEvent from "../../components/LoveStoryAndEvent";
-import VideoBackgroundSection from "../../components/VideoBackgroundSection";
-import WeddingGift from "../../components/WeddingGift";
-import OurLoveInFrame from "../../components/OurLoveInFrame";
-import ClosingMessage from "../../components/ClosingMessage";
-import Footer from "../../components/Footer";
-import MusicToggle from "../../components/MusicToggle";
+import { useAudio } from "../../../hooks/useAudio";
+import CoverOverlay from "../../../components/CoverOverlay";
+import HeroSection from "../../../components/HeroSection";
+import CoupleSection from "../../../components/CoupleSection";
+import LoveStoryAndEvent from "../../../components/LoveStoryAndEvent";
+import VideoBackgroundSection from "../../../components/VideoBackgroundSection";
+import WeddingGift from "../../../components/WeddingGift";
+import ReservationSection from "../../../components/ReservationSection";
+import SayingSomething from "../../../components/SayingSomething";
+import OurLoveInFrame from "../../../components/OurLoveInFrame";
+import ClosingMessage from "../../../components/ClosingMessage";
+import Footer from "../../../components/Footer";
+import MusicToggle from "../../../components/MusicToggle";
 
 function parseNames(slug: string): { groom: string; bride: string } {
   const parts = slug.split("-");
@@ -44,7 +46,7 @@ function parseGuestName(guest: string): string {
 
 export default function InvitationPage() {
   const params = useParams();
-  const slug = typeof params.slug === "string" ? params.slug : "Satria-Heppa";
+  const slug = typeof params.slug === "string" ? params.slug : "satria-heppa";
   const guest = typeof params.guest === "string" ? params.guest : "";
   const { groom, bride } = parseNames(slug);
   const guestName = parseGuestName(guest);
@@ -71,6 +73,8 @@ export default function InvitationPage() {
           <VideoBackgroundSection>
             <LoveStoryAndEvent />
             <WeddingGift />
+            <ReservationSection />
+            <SayingSomething />
           </VideoBackgroundSection>
           <OurLoveInFrame />
           <VideoBackgroundSection>

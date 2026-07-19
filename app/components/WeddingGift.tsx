@@ -41,7 +41,7 @@ export default function WeddingGift() {
           transition={{ duration: 0.7 }}
         >
           <div className="mb-6">
-            <h2 className="font-serif text-white text-xl md:text-2xl tracking-wider uppercase mb-3">
+            <h2 className="font-serif text-white text-xl md:text-2xl tracking-wider uppercase mb-3 text-center">
               Wedding Gift
             </h2>
             <div className="h-[2px] w-full bg-white/30" />

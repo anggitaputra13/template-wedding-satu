@@ -55,6 +55,13 @@ function CoupleFullPage({
             background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 30%, rgba(0,0,0,0.2) 50%, transparent 70%)",
           }}
         />
+        {/* Side vignette shadow */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.4) 100%)",
+          }}
+        />
       </motion.div>
 
       {/* Text content — positioned at bottom */}
@@ -149,7 +156,7 @@ export default function CoupleSection() {
         person={weddingContent.bride}
         label="THE BRIDE"
         align="right"
-        imageScale={1.3}
+        imageScale={1.0}
       />
     </>
   );
