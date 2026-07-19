@@ -10,9 +10,10 @@ export default function ReservationSection() {
   const [jumlahTamu, setJumlahTamu] = useState("1");
   const [attendance, setAttendance] = useState<AttendanceStatus>(null);
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!name.trim()) {
       setError("Nama harus diisi");
       return;
@@ -22,7 +23,22 @@ export default function ReservationSection() {
       return;
     }
     setError("");
-    setSubmitted(true);
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/reservation", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: name.trim(), jumlahTamu, attendance }),
+      });
+
+      if (!res.ok) throw new Error("Failed");
+      setSubmitted(true);
+    } catch {
+      setError("Gagal menyimpan data. Silakan coba lagi.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -119,9 +135,10 @@ export default function ReservationSection() {
               {/* Submit */}
               <button
                 onClick={handleSubmit}
-                className="w-full border-2 border-white text-white py-3 rounded-full text-sm sm:text-base tracking-wider hover:bg-white hover:text-[#1a0e0a] transition-all duration-300 hover:scale-[1.02] font-garet"
+                disabled={loading}
+                className="w-full border-2 border-white text-white py-3 rounded-full text-sm sm:text-base tracking-wider hover:bg-white hover:text-[#1a0e0a] transition-all duration-300 hover:scale-[1.02] font-garet disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Konfirmasi
+                {loading ? "Mengirim..." : "Konfirmasi"}
               </button>
             </motion.div>
           ) : (
