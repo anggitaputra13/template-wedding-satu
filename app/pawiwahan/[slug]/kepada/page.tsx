@@ -3,6 +3,8 @@
 import { useState, Suspense } from "react";
 import { useParams, useSearchParams } from "next/navigation";
 import { useAudio } from "../../../hooks/useAudio";
+import { LanguageProvider } from "../../../contexts/LanguageContext";
+import LanguageToggle from "../../../components/LanguageToggle";
 import CoverOverlay from "../../../components/CoverOverlay";
 import HeroSection from "../../../components/HeroSection";
 import CoupleSection from "../../../components/CoupleSection";
@@ -62,6 +64,7 @@ function InvitationContent() {
 
   return (
     <main className="min-h-screen bg-[#1a0e0a]">
+      <LanguageToggle />
       {!isOpen && (
         <CoverOverlay onOpen={handleOpen} groom={groom} bride={bride} guestName={guestName} />
       )}
@@ -90,8 +93,10 @@ function InvitationContent() {
 
 export default function InvitationPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-[#1a0e0a]" />}>
-      <InvitationContent />
-    </Suspense>
+    <LanguageProvider>
+      <Suspense fallback={<div className="min-h-screen bg-[#1a0e0a]" />}>
+        <InvitationContent />
+      </Suspense>
+    </LanguageProvider>
   );
 }

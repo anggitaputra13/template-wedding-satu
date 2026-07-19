@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { weddingContent } from "../data/content";
 import { calculateCountdown } from "../utils/countdown";
+import { useLanguage } from "../contexts/LanguageContext";
 
 import { SLIDESHOW_IMAGES } from "../data/media";
 
@@ -18,6 +19,7 @@ export default function HeroSection({
   const [mounted, setMounted] = useState(false);
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [viewportHeight, setViewportHeight] = useState<string>('100vh');
+  const { t } = useLanguage();
   const touchStartX = useRef<number | null>(null);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
@@ -126,7 +128,7 @@ export default function HeroSection({
           className="flex flex-col items-center text-center"
         >
           <p className="font-garet uppercase tracking-[0.3em] text-white text-[10px] md:text-xs leading-none">
-            WE ARE GETTING MARRIED
+            {t("KAMI AKAN MENIKAH", "WE ARE GETTING MARRIED")}
           </p>
           <h1 className="font-brittany text-white whitespace-nowrap mt-[1dvh] text-center" style={{ fontSize: 'clamp(3rem, 10vw, 6rem)' }}>
             {groom} &amp; {bride}
@@ -143,6 +145,12 @@ export default function HeroSection({
         >
           <p className="font-garet italic text-white text-base md:text-lg leading-relaxed whitespace-pre-line">
             {weddingContent.quote.sanskrit}
+          </p>
+          <p className="font-garet text-white/70 text-xs md:text-sm mt-2 leading-relaxed">
+            {t(
+              weddingContent.quote.translation,
+              "I hold your hand for our happiness, so that you may reach old age with me as your husband. The gods \u2014 Bhaga, Aryaman, Savitar, and Purandhi \u2014 have given you to me to be a householder."
+            )}
           </p>
           <p className="font-garet text-white text-xs md:text-sm mt-1 opacity-80">
             ({weddingContent.quote.source})
@@ -165,25 +173,25 @@ export default function HeroSection({
               <span className="text-3xl md:text-4xl font-bold">
                 {mounted ? countdown.days : "0"}
               </span>
-              <span className="text-sm md:text-base lowercase">hari</span>
+              <span className="text-sm md:text-base lowercase">{t("hari", "days")}</span>
             </div>
             <div className="flex items-baseline gap-1.5">
               <span className="text-3xl md:text-4xl font-bold">
                 {mounted ? countdown.hours : "0"}
               </span>
-              <span className="text-sm md:text-base lowercase">jam</span>
+              <span className="text-sm md:text-base lowercase">{t("jam", "hours")}</span>
             </div>
             <div className="flex items-baseline gap-1.5">
               <span className="text-3xl md:text-4xl font-bold">
                 {mounted ? countdown.minutes : "0"}
               </span>
-              <span className="text-sm md:text-base lowercase">menit</span>
+              <span className="text-sm md:text-base lowercase">{t("menit", "minutes")}</span>
             </div>
             <div className="flex items-baseline gap-1.5">
               <span className="text-3xl md:text-4xl font-bold">
                 {mounted ? countdown.seconds : "0"}
               </span>
-              <span className="text-sm md:text-base lowercase">detik</span>
+              <span className="text-sm md:text-base lowercase">{t("detik", "seconds")}</span>
             </div>
           </div>
 
@@ -193,7 +201,7 @@ export default function HeroSection({
           {/* Save The Date — takes half, centered */}
           <div className="flex-1 flex items-center justify-center">
             <p className="font-brittany text-white text-2xl md:text-3xl leading-tight">
-              Save The Date
+              {t("Simpan Tanggalnya", "Save The Date")}
             </p>
           </div>
         </motion.div>

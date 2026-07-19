@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useWishes } from "../hooks/useWishes";
+import { useLanguage } from "../contexts/LanguageContext";
 
 export default function SayingSomething() {
+  const { t } = useLanguage();
   const { wishes, addWish, totalCount } = useWishes();
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
@@ -12,7 +14,7 @@ export default function SayingSomething() {
 
   const handleSubmit = async () => {
     if (!name.trim() || !message.trim()) {
-      setError("Nama dan pesan harus diisi");
+      setError(t("Nama dan pesan harus diisi", "Name and message are required"));
       return;
     }
     const success = await addWish(name, message, "hadir");
@@ -49,26 +51,26 @@ export default function SayingSomething() {
           {/* Header */}
           <div className="mb-6">
             <h2 className="font-serif text-white text-xl md:text-2xl tracking-wider uppercase mb-3 text-center">
-              Katakan Sesuatu
+              {t("Katakan Sesuatu", "Say Something")}
             </h2>
             <div className="h-[2px] w-full bg-white/30" />
           </div>
 
           <p className="font-garet text-white/80 text-sm md:text-base text-center leading-relaxed mb-8">
-            Berikan ucapan, doa, dan harapan terbaik Anda untuk kedua mempelai.
+            {t("Berikan ucapan, doa, dan harapan terbaik Anda untuk kedua mempelai.", "Share your wishes, prayers, and best hopes for the bride and groom.")}
           </p>
 
           {/* Form */}
           <div className="space-y-4 mb-8">
             <input
               type="text"
-              placeholder="Nama"
+              placeholder={t("Nama", "Name")}
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="w-full bg-white/10 border border-white/20 text-white placeholder-white/40 px-4 py-3 rounded-lg text-sm sm:text-base focus:outline-none focus:border-white/50 transition-colors font-garet"
             />
             <textarea
-              placeholder="Tulis ucapan & doa..."
+              placeholder={t("Tulis ucapan & doa...", "Write your wishes & prayers...")}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               rows={3}
@@ -83,7 +85,7 @@ export default function SayingSomething() {
               onClick={handleSubmit}
               className="w-full border-2 border-white text-white py-3 rounded-full text-sm sm:text-base tracking-wider hover:bg-white hover:text-[#1a0e0a] transition-all duration-300 hover:scale-[1.02] font-garet"
             >
-              Kirim Ucapan
+              {t("Kirim Ucapan", "Send Wishes")}
             </button>
           </div>
 
@@ -91,7 +93,7 @@ export default function SayingSomething() {
           {totalCount > 0 && (
             <div>
               <p className="font-garet text-white/60 text-xs sm:text-sm mb-4 text-center">
-                {totalCount} Ucapan & Doa
+                {totalCount} {t("Ucapan & Doa", "Wishes & Prayers")}
               </p>
               <div className="max-h-72 overflow-y-auto space-y-3 pr-1 scrollbar-thin">
                 {wishes.map((wish) => (

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const bankAccounts = [
   {
@@ -21,6 +22,7 @@ const bankAccounts = [
 ];
 
 export default function WeddingGift() {
+  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [copied, setCopied] = useState<string | null>(null);
 
@@ -42,13 +44,13 @@ export default function WeddingGift() {
         >
           <div className="mb-6">
             <h2 className="font-serif text-white text-xl md:text-2xl tracking-wider uppercase mb-3 text-center">
-              Wedding Gift
+              {t("Hadiah Pernikahan", "Wedding Gift")}
             </h2>
             <div className="h-[2px] w-full bg-white/30" />
           </div>
 
           <p className="font-garet text-white/80 text-sm md:text-base text-center leading-relaxed mb-8">
-            Tanpa mengurangi rasa hormat kami, apabila Bapak/Ibu/Saudara/i ingin memberikan tanda kasih, kami dengan senang hati menerimanya melalui transfer ke rekening berikut:
+            {t("Tanpa mengurangi rasa hormat kami, apabila Bapak/Ibu/Saudara/i ingin memberikan tanda kasih, kami dengan senang hati menerimanya melalui transfer ke rekening berikut:", "Without diminishing our respect, if you would like to give a gift, we would be happy to receive it via transfer to the following account:")}
           </p>
 
           <div className="text-center">
@@ -56,7 +58,7 @@ export default function WeddingGift() {
               onClick={() => setIsOpen(!isOpen)}
               className="font-garet inline-flex items-center gap-2 border border-white/40 text-white px-8 py-3 rounded-full text-sm tracking-wider hover:bg-white hover:text-[#1a0e0a] transition-all duration-300"
             >
-              {isOpen ? "Tutup" : "Kirim Hadiah"}
+              {isOpen ? t("Tutup", "Close") : t("Kirim Hadiah", "Send Gift")}
             </button>
           </div>
 
@@ -85,7 +87,7 @@ export default function WeddingGift() {
                         {acc.number.replace(/(.{4})/g, "$1 ").trim()}
                       </p>
                       <p className="text-white/70 text-xs uppercase tracking-wider mb-0.5">
-                        Account Holder
+                        {t("Atas Nama", "Account Holder")}
                       </p>
                       <p className="text-white text-sm font-medium mb-4">
                         {acc.name}
@@ -95,14 +97,14 @@ export default function WeddingGift() {
                         className="w-full bg-white/20 hover:bg-white/30 text-white text-xs py-2 rounded-lg flex items-center justify-center gap-2 transition-colors font-garet"
                       >
                         {copied === acc.number ? (
-                          <span className="text-green-300">Nomor Tersalin ✓</span>
+                          <span className="text-green-300">{t("Nomor Tersalin ✓", "Number Copied ✓")}</span>
                         ) : (
                           <>
                             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                               <rect x="9" y="9" width="13" height="13" rx="2" />
                               <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
                             </svg>
-                            Salin Nomor Rekening
+                            {t("Salin Nomor Rekening", "Copy Account Number")}
                           </>
                         )}
                       </button>

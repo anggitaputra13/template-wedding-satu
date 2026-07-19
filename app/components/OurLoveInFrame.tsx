@@ -2,10 +2,12 @@
 
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "../contexts/LanguageContext";
 
 import { GALLERY_IMAGES } from "../data/media";
 
 export default function OurLoveInFrame() {
+  const { t } = useLanguage();
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
@@ -47,13 +49,14 @@ export default function OurLoveInFrame() {
           className="text-center mb-8"
         >
           <h2 className="font-serif text-white text-2xl md:text-3xl tracking-wider uppercase mb-3">
-            Our Love In Frame
+            {t("Cinta Kami Dalam Bingkai", "Our Love In Frame")}
           </h2>
           <div className="h-[2px] w-full bg-white/30 mb-6" />
           <p className="font-garet italic text-white/80 text-sm md:text-base leading-relaxed">
-            In The Presence of God, before the world,{"\n"}
-            and long before time began{"\n"}
-            They choose one another, endlessly.
+            {t(
+              "Di hadapan Tuhan, di hadapan dunia,\ndan jauh sebelum waktu dimulai\nMereka memilih satu sama lain, selamanya.",
+              "In The Presence of God, before the world,\nand long before time began\nThey choose one another, endlessly."
+            )}
           </p>
         </motion.div>
 

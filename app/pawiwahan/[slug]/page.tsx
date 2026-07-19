@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { useParams } from "next/navigation";
 import { useAudio } from "../../hooks/useAudio";
+import { LanguageProvider } from "../../contexts/LanguageContext";
+import LanguageToggle from "../../components/LanguageToggle";
 import CoverOverlay from "../../components/CoverOverlay";
 import HeroSection from "../../components/HeroSection";
 import CoupleSection from "../../components/CoupleSection";
@@ -41,27 +43,30 @@ export default function InvitationPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#1a0e0a]">
-      {!isOpen && <CoverOverlay onOpen={handleOpen} groom={groom} bride={bride} />}
+    <LanguageProvider>
+      <main className="min-h-screen bg-[#1a0e0a]">
+        <LanguageToggle />
+        {!isOpen && <CoverOverlay onOpen={handleOpen} groom={groom} bride={bride} />}
 
-      {isOpen && (
-        <>
-          <HeroSection groom={groom} bride={bride} />
-          <CoupleSection />
-          <VideoBackgroundSection>
-            <LoveStoryAndEvent />
-            <WeddingGift />
-            <ReservationSection />
-            <SayingSomething />
-          </VideoBackgroundSection>
-          <OurLoveInFrame />
-          <VideoBackgroundSection>
-            <ClosingMessage groom={groom} bride={bride} />
-          </VideoBackgroundSection>
-          <Footer />
-          <MusicToggle isPlaying={audio.isPlaying} onToggle={audio.toggle} />
-        </>
-      )}
-    </main>
+        {isOpen && (
+          <>
+            <HeroSection groom={groom} bride={bride} />
+            <CoupleSection />
+            <VideoBackgroundSection>
+              <LoveStoryAndEvent />
+              <WeddingGift />
+              <ReservationSection />
+              <SayingSomething />
+            </VideoBackgroundSection>
+            <OurLoveInFrame />
+            <VideoBackgroundSection>
+              <ClosingMessage groom={groom} bride={bride} />
+            </VideoBackgroundSection>
+            <Footer />
+            <MusicToggle isPlaying={audio.isPlaying} onToggle={audio.toggle} />
+          </>
+        )}
+      </main>
+    </LanguageProvider>
   );
 }

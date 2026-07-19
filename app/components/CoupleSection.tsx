@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { weddingContent } from "../data/content";
 import { CoupleInfo } from "../types";
+import { useLanguage } from "../contexts/LanguageContext";
 
 function CoupleFullPage({
   person,
@@ -145,16 +146,23 @@ function CoupleFullPage({
 }
 
 export default function CoupleSection() {
+  const { t } = useLanguage();
   return (
     <>
       <CoupleFullPage
-        person={weddingContent.groom}
-        label="THE GROOM"
+        person={{
+          ...weddingContent.groom,
+          parentLabel: t(weddingContent.groom.parentLabel, "THIRD SON OF"),
+        }}
+        label={t("MEMPELAI PRIA", "THE GROOM")}
         align="left"
       />
       <CoupleFullPage
-        person={weddingContent.bride}
-        label="THE BRIDE"
+        person={{
+          ...weddingContent.bride,
+          parentLabel: t(weddingContent.bride.parentLabel, "SECOND DAUGHTER OF"),
+        }}
+        label={t("MEMPELAI WANITA", "THE BRIDE")}
         align="right"
         imageScale={1.0}
       />

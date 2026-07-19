@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
 import { media } from "../data/media";
+import { useLanguage } from "../contexts/LanguageContext";
 
 interface CoverOverlayProps {
   onOpen: () => void;
@@ -17,6 +18,8 @@ export default function CoverOverlay({
   bride = "Heppa",
   guestName = "Tamu Undangan",
 }: CoverOverlayProps) {
+  const { t } = useLanguage();
+
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => {
@@ -65,7 +68,7 @@ export default function CoverOverlay({
             transition={{ delay: 0.5, duration: 0.8 }}
           >
             <p className="font-garet text-white/75 text-base sm:text-lg">
-              Kepada Bapak/Ibu/Saudara/i.
+              {t("Kepada Bapak/Ibu/Saudara/i.", "Dear Mr/Mrs/Ms.")}
             </p>
           </motion.div>
 
@@ -103,7 +106,7 @@ export default function CoverOverlay({
                 <rect x="2" y="4" width="20" height="16" rx="2" />
                 <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
               </svg>
-              Buka Undangan
+              {t("Buka Undangan", "Open Invitation")}
             </button>
           </motion.div>
 
@@ -114,7 +117,7 @@ export default function CoverOverlay({
             className="mt-3"
           >
             <p className="font-garet text-white/70 text-[10px] sm:text-[10px] font-semibold whitespace-nowrap">
-              *Mohon maaf bila ada kesalahan nama/gelar
+              {t("*Mohon maaf bila ada kesalahan nama/gelar", "*We apologize for any errors in name/title")}
             </p>
           </motion.div>
         </div>

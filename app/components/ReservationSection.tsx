@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from "../contexts/LanguageContext";
 
 type AttendanceStatus = "hadir" | "tidak_hadir" | null;
 
 export default function ReservationSection() {
+  const { t } = useLanguage();
   const [name, setName] = useState("");
   const [jumlahTamu, setJumlahTamu] = useState("1");
   const [attendance, setAttendance] = useState<AttendanceStatus>(null);
@@ -15,11 +17,11 @@ export default function ReservationSection() {
 
   const handleSubmit = async () => {
     if (!name.trim()) {
-      setError("Nama harus diisi");
+      setError(t("Nama harus diisi", "Name is required"));
       return;
     }
     if (!attendance) {
-      setError("Pilih konfirmasi kehadiran");
+      setError(t("Pilih konfirmasi kehadiran", "Please select attendance confirmation"));
       return;
     }
     setError("");
@@ -35,7 +37,7 @@ export default function ReservationSection() {
       if (!res.ok) throw new Error("Failed");
       setSubmitted(true);
     } catch {
-      setError("Gagal menyimpan data. Silakan coba lagi.");
+      setError(t("Gagal menyimpan data. Silakan coba lagi.", "Failed to save data. Please try again."));
     } finally {
       setLoading(false);
     }
@@ -53,13 +55,13 @@ export default function ReservationSection() {
           {/* Header */}
           <div className="mb-6">
             <h2 className="font-serif text-white text-xl md:text-2xl tracking-wider uppercase mb-3 text-center">
-              Konfirmasi Kehadiran
+              {t("Konfirmasi Kehadiran", "Attendance Confirmation")}
             </h2>
             <div className="h-[2px] w-full bg-white/30" />
           </div>
 
           <p className="font-garet text-white/80 text-sm md:text-base text-center leading-relaxed mb-8">
-            Mohon konfirmasi kehadiran Anda agar kami dapat mempersiapkan acara dengan lebih baik.
+            {t("Mohon konfirmasi kehadiran Anda agar kami dapat mempersiapkan acara dengan lebih baik.", "Please confirm your attendance so we can better prepare for the event.")}
           </p>
 
           {!submitted ? (
@@ -72,7 +74,7 @@ export default function ReservationSection() {
               {/* Nama */}
               <input
                 type="text"
-                placeholder="Nama Lengkap"
+                placeholder={t("Nama Lengkap", "Full Name")}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="w-full bg-white/10 border border-white/20 text-white placeholder-white/40 px-4 py-3 rounded-lg text-sm sm:text-base focus:outline-none focus:border-white/50 transition-colors font-garet"
@@ -81,18 +83,18 @@ export default function ReservationSection() {
               {/* Jumlah Tamu */}
               <div className="flex items-center gap-3">
                 <label className="font-garet text-white/70 text-sm whitespace-nowrap">
-                  Jumlah Tamu:
+                  {t("Jumlah Tamu:", "Number of Guests:")}
                 </label>
                 <select
                   value={jumlahTamu}
                   onChange={(e) => setJumlahTamu(e.target.value)}
                   className="flex-1 bg-white/10 border border-white/20 text-white px-4 py-3 rounded-lg text-sm focus:outline-none focus:border-white/50 transition-colors font-garet appearance-none"
                 >
-                  <option value="1" className="bg-[#1a0e0a]">1 Orang</option>
-                  <option value="2" className="bg-[#1a0e0a]">2 Orang</option>
-                  <option value="3" className="bg-[#1a0e0a]">3 Orang</option>
-                  <option value="4" className="bg-[#1a0e0a]">4 Orang</option>
-                  <option value="5" className="bg-[#1a0e0a]">5 Orang</option>
+                  <option value="1" className="bg-[#1a0e0a]">1 {t("Orang", "Person(s)")}</option>
+                  <option value="2" className="bg-[#1a0e0a]">2 {t("Orang", "Person(s)")}</option>
+                  <option value="3" className="bg-[#1a0e0a]">3 {t("Orang", "Person(s)")}</option>
+                  <option value="4" className="bg-[#1a0e0a]">4 {t("Orang", "Person(s)")}</option>
+                  <option value="5" className="bg-[#1a0e0a]">5 {t("Orang", "Person(s)")}</option>
                 </select>
               </div>
 
@@ -110,7 +112,7 @@ export default function ReservationSection() {
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                     <path d="M5 13l4 4L19 7" />
                   </svg>
-                  Hadir
+                  {t("Hadir", "Attending")}
                 </button>
                 <button
                   type="button"
@@ -124,7 +126,7 @@ export default function ReservationSection() {
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                     <path d="M18 6L6 18M6 6l12 12" />
                   </svg>
-                  Tidak Hadir
+                  {t("Tidak Hadir", "Not Attending")}
                 </button>
               </div>
 
@@ -138,7 +140,7 @@ export default function ReservationSection() {
                 disabled={loading}
                 className="w-full border-2 border-white text-white py-3 rounded-full text-sm sm:text-base tracking-wider hover:bg-white hover:text-[#1a0e0a] transition-all duration-300 hover:scale-[1.02] font-garet disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {loading ? "Mengirim..." : "Konfirmasi"}
+                {loading ? t("Mengirim...", "Sending...") : t("Konfirmasi", "Confirm")}
               </button>
             </motion.div>
           ) : (
@@ -160,12 +162,12 @@ export default function ReservationSection() {
                 )}
               </div>
               <p className="font-garet text-white text-base md:text-lg mb-2">
-                Terima Kasih, {name}!
+                {t(`Terima Kasih, ${name}!`, `Thank You, ${name}!`)}
               </p>
               <p className="font-garet text-white/70 text-sm">
                 {attendance === "hadir"
-                  ? `Konfirmasi kehadiran Anda (${jumlahTamu} orang) telah kami terima. Sampai jumpa di hari bahagia kami!`
-                  : "Kami mengerti. Terima kasih atas doa dan restu Anda."}
+                  ? t(`Konfirmasi kehadiran Anda (${jumlahTamu} orang) telah kami terima. Sampai jumpa di hari bahagia kami!`, `Your attendance confirmation (${jumlahTamu} person(s)) has been received. See you on our happy day!`)
+                  : t("Kami mengerti. Terima kasih atas doa dan restu Anda.", "We understand. Thank you for your prayers and blessings.")}
               </p>
             </motion.div>
           )}

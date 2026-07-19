@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLanguage } from "../contexts/LanguageContext";
 
 export default function ClosingMessage({
   groom = "Satria",
@@ -9,6 +10,7 @@ export default function ClosingMessage({
   groom?: string;
   bride?: string;
 }) {
+  const { t } = useLanguage();
   return (
     <section className="relative py-16 px-6">
       <div className="max-w-lg mx-auto text-center">
@@ -22,7 +24,7 @@ export default function ClosingMessage({
             {groom} &amp; {bride}
           </h2>
           <p className="font-garet text-white/80 text-sm md:text-base leading-relaxed">
-            Merupakan suatu kebahagiaan dan kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami. Atas kehadirannya kami ucapkan terima kasih.
+            {t("Merupakan suatu kebahagiaan dan kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami. Atas kehadirannya kami ucapkan terima kasih.", "It would be our great happiness and honor if you would attend to give us your blessings. We thank you for your presence.")}
           </p>
         </motion.div>
       </div>
