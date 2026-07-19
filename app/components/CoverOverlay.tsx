@@ -38,6 +38,8 @@ export default function CoverOverlay({
           src={media.foto1}
           alt=""
           loading="eager"
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
           className="absolute inset-0 w-full h-full object-cover"
         />
         {/* Dark overlay */}

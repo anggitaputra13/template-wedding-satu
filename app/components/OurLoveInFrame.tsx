@@ -72,13 +72,15 @@ export default function OurLoveInFrame() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="aspect-square overflow-hidden rounded-sm cursor-pointer"
+              className="aspect-square overflow-hidden rounded-sm cursor-pointer bg-black"
               onClick={() => openPhoto(i)}
             >
               <img
                 src={src}
                 alt={`Gallery ${i + 1}`}
                 loading="lazy"
+                crossOrigin="anonymous"
+                referrerPolicy="no-referrer"
                 className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
               />
             </motion.div>
@@ -132,6 +134,8 @@ export default function OurLoveInFrame() {
               key={selectedIndex}
               src={GALLERY_IMAGES[selectedIndex]}
               alt=""
+              crossOrigin="anonymous"
+              referrerPolicy="no-referrer"
               className="max-w-[90vw] max-h-[85vh] object-contain rounded-lg"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}

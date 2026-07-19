@@ -99,7 +99,13 @@ export default function HeroSection({
           key={currentSlide}
           src={SLIDESHOW_IMAGES[currentSlide]}
           alt=""
-          className="absolute inset-0 w-full h-full object-cover scale-110"
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+          className={`absolute inset-0 w-full h-full ${
+            currentSlide === 2 || currentSlide === 3
+              ? "object-cover scale-80"
+              : "object-cover scale-110"
+          }`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
