@@ -32,11 +32,11 @@ export const weddingContent: WeddingContent = {
   event2: {
     type: "Upacara Pernikahan",
     date: "Jumat, 17 Agustus 2026",
-    time: "08.00 - 12.00 WITA",
-    location: "Taman Prakerti Bhuana ,Beng , Gianyar",
-    mapsUrl: "https://maps.app.goo.gl/215ktRRYY47Dtu3z8",
+    time: "11.00 WITA - Selesai",
+    location: "Jalan, Tangguwisia, Seririt, Buleleng, Bali. (Gang Depan Indomaret)",
+    mapsUrl: "https://maps.app.goo.gl/rA9mShVhJQG7Vn4i7",
   },
-  targetDate: "2026-08-28T08:00:00+08:00",
+  targetDate: "2026-08-17T11:00:00+08:00",
   quote: {
     sanskrit:
       "Ihaiva stam mā vi yaustam,\nVisvām āyur vyasnutam.\nKrindantau putrair naptrbhih,\nModamānau sve grhe.",

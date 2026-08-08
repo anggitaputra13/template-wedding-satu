@@ -1,4 +1,4 @@
-const TARGET = new Date("2026-08-28T08:00:00+08:00").getTime();
+const TARGET = new Date("2026-08-17T11:00:00+08:00").getTime();
 
 export interface CountdownResult {
   days: number;

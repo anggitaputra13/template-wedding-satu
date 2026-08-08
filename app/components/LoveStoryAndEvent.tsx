@@ -6,7 +6,7 @@ import { useLanguage } from "../contexts/LanguageContext";
 
 export default function LoveStoryAndEvent() {
   const { t } = useLanguage();
-  const { event } = weddingContent;
+  const { event, event2 } = weddingContent;
 
   return (
     <section className="relative py-16 px-6 overflow-hidden">
@@ -81,39 +81,83 @@ export default function LoveStoryAndEvent() {
           <div className="h-[2px] w-full bg-white/40 mt-4" />
         </motion.div>
 
-        {/* Single event card — centered */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-center"
-        >
-          <p className="font-serif italic text-white/90 text-lg md:text-xl mb-5">
-            {t(event.type, "Wedding Reception")}
-          </p>
-          <p className="font-garet text-white font-bold text-base md:text-lg mb-1">
-            {t(event.date, "Friday, August 28, 2026")}
-          </p>
-          <p className="font-garet italic text-white/80 text-sm md:text-base mb-4">
-            {t("Pukul", "At")} {event.time}
-          </p>
-          <p className="font-garet text-white/70 text-xs md:text-sm leading-relaxed mb-6">
-            {t("Bertempat di", "Venue:")} {event.location}
-          </p>
-          <a
-            href={event.mapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/30 bg-white/10 backdrop-blur-sm text-white text-xs md:text-sm hover:bg-white/20 transition-colors"
+        {/* Event cards — 2 acara */}
+        <div className="flex flex-col gap-6">
+          {/* Acara 1: Upacara Pernikahan */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="text-center bg-white/5 border border-white/10 rounded-2xl px-6 py-7"
           >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-              <circle cx="12" cy="10" r="3" />
-            </svg>
-            {t("Google Maps", "Google Maps")}
-          </a>
-        </motion.div>
+            <p className="font-serif italic text-white/90 text-lg md:text-xl mb-5">
+              {t(event2.type, "Wedding Ceremony")}
+            </p>
+            <p className="font-garet text-white font-bold text-base md:text-lg mb-1">
+              {t(event2.date, "Sunday, August 17, 2026")}
+            </p>
+            <p className="font-garet italic text-white/80 text-sm md:text-base mb-4">
+              {t("Pukul", "At")} {event2.time}
+            </p>
+            <p className="font-garet text-white/70 text-xs md:text-sm leading-relaxed mb-6">
+              {t("Bertempat di", "Venue:")} {event2.location}
+            </p>
+            <a
+              href={event2.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/30 bg-white/10 backdrop-blur-sm text-white text-xs md:text-sm hover:bg-white/20 transition-colors"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              {t("Google Maps", "Google Maps")}
+            </a>
+          </motion.div>
+
+          {/* Divider */}
+          <div className="flex items-center gap-4">
+            <div className="flex-1 h-px bg-white/15" />
+            <span className="text-white/30 text-sm">&amp;</span>
+            <div className="flex-1 h-px bg-white/15" />
+          </div>
+
+          {/* Acara 2: Resepsi Pernikahan */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="text-center bg-white/5 border border-white/10 rounded-2xl px-6 py-7"
+          >
+            <p className="font-serif italic text-white/90 text-lg md:text-xl mb-5">
+              {t(event.type, "Wedding Reception")}
+            </p>
+            <p className="font-garet text-white font-bold text-base md:text-lg mb-1">
+              {t(event.date, "Friday, August 28, 2026")}
+            </p>
+            <p className="font-garet italic text-white/80 text-sm md:text-base mb-4">
+              {t("Pukul", "At")} {event.time}
+            </p>
+            <p className="font-garet text-white/70 text-xs md:text-sm leading-relaxed mb-6">
+              {t("Bertempat di", "Venue:")} {event.location}
+            </p>
+            <a
+              href={event.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/30 bg-white/10 backdrop-blur-sm text-white text-xs md:text-sm hover:bg-white/20 transition-colors"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              {t("Google Maps", "Google Maps")}
+            </a>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
