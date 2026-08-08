@@ -10,6 +10,12 @@ export default function WishesSection() {
   const [message, setMessage] = useState("");
   const [attendance, setAttendance] = useState<"hadir" | "tidak_hadir">("hadir");
   const [error, setError] = useState("");
+  const [showAll, setShowAll] = useState(false);
+
+  // 3 ucapan terbaru (dari belakang), atau semua jika showAll
+  const recentWishes = [...wishes].reverse();
+  const displayedWishes = showAll ? recentWishes : recentWishes.slice(0, 3);
+  const hasMore = wishes.length > 3;
 
   const handleSubmit = async () => {
     if (!name.trim() || !message.trim()) {
@@ -143,16 +149,21 @@ export default function WishesSection() {
           {totalCount} Ucapan
         </p>
 
-        <div className="max-w-md mx-auto max-h-80 overflow-y-auto space-y-3 pr-1 scrollbar-thin">
-          {wishes.map((wish) => (
+        {/* Wishes list */}
+        <div
+          className={`max-w-md mx-auto space-y-3 pr-1 transition-all duration-300 ${
+            showAll
+              ? "max-h-[480px] overflow-y-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent"
+              : "overflow-hidden"
+          }`}
+        >
+          {displayedWishes.map((wish) => (
             <div
               key={wish.id}
               className="bg-white/5 border border-white/15 rounded-lg px-4 py-3 text-left backdrop-blur-sm"
             >
               <div className="flex items-center justify-between mb-1">
-                <p className="text-white text-sm font-semibold">
-                  {wish.name}
-                </p>
+                <p className="text-white text-sm font-semibold">{wish.name}</p>
                 {wish.attendance && (
                   <span
                     className={`text-[10px] sm:text-xs px-2 py-0.5 rounded-full ${
@@ -172,6 +183,30 @@ export default function WishesSection() {
             </div>
           ))}
         </div>
+
+        {/* Show more / collapse button */}
+        {hasMore && (
+          <button
+            onClick={() => setShowAll((prev) => !prev)}
+            className="mt-5 inline-flex items-center gap-2 text-white/60 hover:text-white text-xs sm:text-sm tracking-wider transition-colors"
+          >
+            {showAll ? (
+              <>
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path d="M5 15l7-7 7 7" />
+                </svg>
+                Sembunyikan
+              </>
+            ) : (
+              <>
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path d="M19 9l-7 7-7-7" />
+                </svg>
+                Tampilkan Semua ({totalCount} Ucapan)
+              </>
+            )}
+          </button>
+        )}
       </section>
     </>
   );
