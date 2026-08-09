@@ -35,7 +35,7 @@ export default function CountdownTimer() {
   return (
     <section className="py-12 sm:py-16 px-6 bg-[#1a0e0a]">
       <p className="text-center text-white text-sm sm:text-base md:text-lg font-serif mb-8">
-        Minggu, 17 Agustus 2026
+        Senin, 17 Agustus 2026
       </p>
       <div className="flex justify-center gap-3 sm:gap-4 md:gap-6">
         {units.map((unit, i) => (

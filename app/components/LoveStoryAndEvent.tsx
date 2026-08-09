@@ -95,7 +95,7 @@ export default function LoveStoryAndEvent() {
               {t(event2.type, "Wedding Ceremony")}
             </p>
             <p className="font-garet text-white font-bold text-base md:text-lg mb-1">
-              {t(event2.date, "Sunday, August 17, 2026")}
+              {t(event2.date, "Monday, August 17, 2026")}
             </p>
             <p className="font-garet italic text-white/80 text-sm md:text-base mb-4">
               {t("Pukul", "At")} {event2.time}

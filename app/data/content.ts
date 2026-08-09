@@ -31,7 +31,7 @@ export const weddingContent: WeddingContent = {
   },
   event2: {
     type: "Upacara Pernikahan",
-    date: "Jumat, 17 Agustus 2026",
+    date: "Senin, 17 Agustus 2026",
     time: "11.00 WITA - Selesai",
     location: "Jalan, Tangguwisia, Seririt, Buleleng, Bali. (Gang Depan Indomaret)",
     mapsUrl: "https://maps.app.goo.gl/rA9mShVhJQG7Vn4i7",
